@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Geetheswar Reddy Bhumireddy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <style>
+    /* ===== Global Style (Dark + Blue-Neon) ===== */
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Fira Code',monospace;background:#000;color:#fff;overflow:hidden}
+
+    /* ---- Header / Nav ---- */
+    header{background:transparent;color:#00ffff;padding:20px 40px;display:flex;justify-content:space-between;align-items:center}
+    nav ul{list-style:none;display:flex;gap:25px}
+    nav a{color:#fff;font-weight:700;text-decoration:none;transition:color .3s}
+    nav a:hover{color:#00ffff}
+
+    /* ---- Sidebar Social ---- */
+    .sidebar{position:fixed;top:50%;left:20px;transform:translateY(-50%);display:flex;flex-direction:column;gap:20px;z-index:9999}
+    .sidebar a{color:#00ffff;font-size:1.3rem;text-decoration:none}
+
+    /* ---- Section Container & Generic Sections ---- */
+    .section-container{width:400vw;height:100vh;display:flex;transition:transform .5s}
+    section{width:100vw;height:100vh;flex-shrink:0;padding:100px 8vw;display:flex;flex-direction:column;justify-content:center;overflow-y:auto}
+
+    .section-title{color:#00ffff;text-align:center;margin-bottom:48px;font-size:1.8rem}
+    .content-box{max-width:1200px;margin:0 auto;}
+
+    /* ---- Hero ---- */
+    .hero{flex-direction:row;justify-content:space-between;align-items:center}
+    .hero-text{max-width:480px}
+    .hero-text h2{color:#00ffff;font-size:.9rem}
+    .hero-text h1{font-size:1.8rem;font-weight:700}
+    .hero-text h3{color:#00ffff;font-size:1rem;margin-top:6px}
+    .hero-text p{font-size:.85rem;color:#ccc;margin:20px 0}
+    .hero-image{width:300px;height:400px;border-radius:50%;overflow:hidden;border:3px solid #00ffff}
+    .hero-image img{width:100%;height:100%;object-fit:cover}
+
+    /* ---- Buttons ---- */
+    .buttons{display:flex;gap:12px;margin-top:20px;flex-wrap:wrap;justify-content:center}
+    .btn{padding:8px 18px;border:2px solid #00ffff;color:#00ffff;background:transparent;font-size:.85rem;font-weight:700;border-radius:6px;text-decoration:none;cursor:pointer;transition:all .25s ease}
+    .btn:hover{background:#00ffff;color:#000;transform:scale(1.05)}
+
+    /* ---- Tag skills & Facts ---- */
+    .tag-skill{border:1px solid #00ff00;padding:6px 12px;margin:5px;border-radius:6px;color:#00ff00;font-size:.8rem;display:inline-block}
+    ul.facts{list-style:none;margin-top:10px;padding-left:0}
+    ul.facts li{margin-bottom:10px}
+    ul.facts li::before{content:'👉 ';color:#00ffff}
+
+    /* ===== Project Grid ===== */
+    .project-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:40px}
+    .project-card{
+      background:#0a0a0a;border:2px solid #00ffff;border-radius:14px;
+      padding:32px 24px;box-shadow:0 0 10px 2px #00ffff55;
+      display:flex;flex-direction:column;justify-content:space-between;
+      transition:transform .25s ease,box-shadow .25s ease
+    }
+    .project-card:hover{transform:translateY(-8px);box-shadow:0 0 25px 4px #00ffffaa}
+    .project-card h3{color:#00ffff;font-size:1.15rem;font-weight:600;margin-bottom:16px;line-height:1.3}
+    .project-card p{color:#d5d5d5;font-size:.9rem;line-height:1.6;margin-bottom:24px}
+    .project-card .buttons{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-start;margin-top:auto}
+
+    /* ---- Cursor Blink ---- */
+    .cursor{display:inline-block;color:#00ffff;font-weight:bold;animation:blink .7s steps(1) infinite}
+    @keyframes blink{0%,50%{opacity:1}51%,100%{opacity:0}}
+
+    /* ---- Get In Touch Form ---- */
+    .get-in-touch{margin-top:40px;color:#fff}
+    .get-in-touch h2{font-size:1.5rem;margin-bottom:20px;color:#00ffff}
+    .get-in-touch p{font-size:.9rem;margin-bottom:30px}
+    .get-in-touch label{display:block;font-size:.85rem;margin-bottom:8px}
+    .get-in-touch input,.get-in-touch textarea{width:100%;padding:10px;border:1px solid #00ffff;background:#0a0a0a;color:#fff;margin-bottom:20px}
+    .get-in-touch button{padding:10px 20px;border:none;color:#00ffff;background:#00ffff;border-radius:6px;font-size:.85rem;font-weight:700;cursor:pointer;transition:background .25s ease}
+    .get-in-touch button:hover{background:#fff;color:#000}
+  </style>
+</head>
+<body>
+  <!-- ===== HEADER ===== -->
+  <header>
+    <h1><a href="#" onclick="navigateTo(0)" style="text-decoration: none; color: inherit;">GRB</a></h1>
+    <nav>
+      <ul>
+        <li><a onclick="navigateTo(0)">Home</a></li>
+        <li><a onclick="navigateTo(1)">About</a></li>
+        <li><a onclick="navigateTo(2)">Projects</a></li>
+        <li><a onclick="navigateTo(3)">Resume</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ===== SIDEBAR ICONS ===== -->
+  <div class="sidebar">
+    <a href="#" onclick="openGitHubPopup()"><i class="fab fa-github"></i></a>
+    <a href="https://linkedin.com/in/geetheswar-bhumireddy" target="_blank"><i class="fab fa-linkedin"></i></a>
+  </div>
+
+  <!-- ===== SCROLL CONTAINER ===== -->
+  <div class="section-container" id="container">
+
+    <!-- ---------- HOME ---------- -->
+    <section class="hero">
+      <div class="hero-text">
+        <h2>Hi, I'm</h2>
+        <h1>Geetheswar Reddy Bhumireddy</h1>
+        <h3><span id="typed-text"></span><span class="cursor">|</span></h3>
+        <p>A passionate problem solver with <strong>Java</strong> as my core strength. I also have experience in C++, Python, debugging, operating systems, and networking.</p>
+        <div class="buttons">
+          <a class="btn" onclick="navigateTo(2)">Projects</a>
+          <a class="btn" onclick="navigateTo(1)">About Me</a>
+          <a class="btn" onclick="navigateTo(3)">Resume</a>
+        </div>
+      </div>
+      <div class="hero-image"><img src="profile.jpg" alt="Profile"></div>
+    </section>
+
+    <!-- ---------- ABOUT ---------- -->
+    <section>
+      <div class="content-box" style="padding: 40px 5vw; max-width: 1200px; margin: 0 auto;">
+        <h2 class="section-title">About Me</h2>
+    
+        <p style="margin-bottom: 20px; line-height: 1.7;">Hello! I’m Geetheswar Reddy Bhumireddy from Andhra Pradesh, India. I’m currently pursuing a B.S. in Computer Science at Arizona State University. I’m a passionate problem solver, a national-level karate champion, a keyboard enthusiast, and someone who finds joy in dancing and storytelling.</p>
+    
+        <p style="margin-bottom: 20px; line-height: 1.7;">Ever since childhood, cinema has been my emotional home. I'm a cinema lover and aspiring storyteller who wants to blend technology with filmmaking. I write stories, explore VFX, and dream of building games and tools for creative expression. My goal is to merge tech with cinema to bring new experiences to life.</p>
+    
+        <p style="margin-bottom: 40px; line-height: 1.7;">I’m also a self-taught keyboard player and I occasionally compose short movie-style themes. I often challenge myself to learn new tools or tech in just 48 hours — and I absolutely love the thrill of learning.</p>
+    
+        <h3 class="section-title">Fun Facts</h3>
+        <ul class="facts" style="margin-bottom: 40px;">
+          <li>💪 National-level karate champion with black-belt honors</li>
+          <li>🎶 I compose keyboard music for fun and creativity</li>
+          <li>🎭 I love dancing and stage performances</li>
+          <li>🎮 I’m exploring game development, cinema tech, and VFX tools</li>
+          <li>🚀 I'm always building something new or challenging myself with 48-hour learning sprints</li>
+        </ul>
+    
+        <h3 class="section-title">Languages I Know</h3>
+        <div class="project-grid" style="gap: 30px; margin-bottom: 40px;">
+          <div class="project-card"><h3>Java</h3><p>Core language. Used for backend, Android, and Spring Boot APIs.</p></div>
+          <div class="project-card"><h3>C++</h3><p>Good at problem-solving, DSA, and memory management projects.</p></div>
+          <div class="project-card"><h3>Python</h3><p>Used for scripting, ML projects, and automation tools.</p></div>
+          <div class="project-card"><h3>JavaScript</h3><p>Frontend scripting, DOM manipulation, and dynamic websites.</p></div>
+          <div class="project-card"><h3>TypeScript</h3><p>Typed version of JS. Used in modern frontend stacks.</p></div>
+          <div class="project-card"><h3>Go</h3><p>Beginner level. Exploring for systems programming.</p></div>
+        </div>
+    
+        <h3 class="section-title">Why I Do What I Do</h3>
+        <p style="margin-bottom: 40px; line-height: 1.7;">Code gives me power to solve problems and create things I imagine. Cinema gives me purpose. My dream is to mix both to inspire people and bring change. That’s what drives me.</p>
+    
+        <h3 class="section-title">Let’s Build Together</h3>
+        <p style="line-height: 1.7;">I’m always open to collaborations — whether it’s apps, games, or short films. If you want to build something fun, meaningful, or crazy innovative, let’s connect!</p>
+    
+        <div class="buttons" style="margin-top:30px">
+          <a class="btn" onclick="navigateTo(0)">← Back to Home</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- PROJECTS ---------- -->
+    <section>
+      <div class="content-box">
+        <h2 class="section-title">My Projects</h2>
+        <div class="project-grid">
+          <div class="project-card">
+            <h3>Project Spyn</h3>
+            <p>Used MATLAB &amp; sensors for robot navigation; improved performance by 25%.</p>
+            <div class="buttons">
+              <a class="btn" href="https://github.com/gbhumire123/Spyn" target="_blank">View Project</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>Business Portfolio Site</h3>
+            <p>Built responsive HTML/CSS site with 10+ projects; reduced bounce rate 25%.</p>
+            <div class="buttons">
+              <a class="btn" href="https://github.com/gbhumire123/Business-portfolio" target="_blank">View Project</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>Help System (Group Project)</h3>
+            <p>Encrypted JavaFX app with role-specific views, JUnit, and access control.</p>
+            <div class="buttons">
+              <a class="btn" href="https://github.com/GhorTGB/CSE-360-Help-System.git" target="_blank">View Project</a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <h3>Real Estate Portal</h3>
+            <p>Created a real-estate portal to manage listings and inquiries; neon-styled responsive website.</p>
+            <div class="buttons">
+              <a class="btn" href="https://github.com/kirankigi5/RealEstatePortal" target="_blank">View Project</a>
+              <a class="btn" href="https://sankarhillcounty.com/" target="_blank">View Website</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="buttons" style="margin-top:40px;justify-content:center">
+          <a class="btn" onclick="navigateTo(0)">← Back to Home</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ---------- RESUME ---------- -->
+    <section>
+      <div class="content-box">
+        <h2 class="section-title">Resume</h2>
+        <p>You can view or download my resume below:</p>
+        <div class="buttons">
+          <a class="btn" href="https://drive.google.com/file/d/1sm4_9u4C6Nus88rcguFALVE3un9jH3re/view?usp=sharing" target="_blank">View Resume</a>
+          <a class="btn" onclick="navigateTo(0)">← Back to Home</a>
+        </div>
+      </div>
+
+      <!-- Get In Touch Section -->
+      <div class="get-in-touch">
+        <h2>Get In Touch</h2>
+        <p>If you're interested in working together or just want to say hello, feel free to reach out using the form below.</p>
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name" required>
+
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="How can I help you?" required></textarea>
+
+          <button type="submit" class="btn">Send Message</button>
+        </form>
+      </div>
+    </section>
+
+  </div><!-- /section-container -->
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    const container=document.getElementById('container');
+
+    function navigateTo(idx){
+      container.style.transform=`translateX(-${idx*100}vw)`;
+    }
+    function openGitHubPopup(){
+      window.open('https://github.com/gbhumire123','popup','width=800,height=600');
+    }
+
+    const titles=['New American University Scholar','Frontend Developer','Java Backend Developer','Open Source Enthusiast','Creative Problem Solver'];
+    const typed=document.getElementById('typed-text');let t=0,c=0,del=false;
+    (function type(){
+      const cur=titles[t];typed.textContent=cur.substring(0,c);
+      if(!del&&c<cur.length){c++;setTimeout(type,100);}
+      else if(del&&c>0){c--;setTimeout(type,50);}
+      else{del=!del;if(!del)t=(t+1)%titles.length;setTimeout(type,1200);}
+    })();
+  </script>
+</body>
+</html>
