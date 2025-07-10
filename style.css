@@ -152,3 +152,54 @@ footer {
   background: #fff;
   color: #000;
 }
+
+/* Place GitHub and LinkedIn icons on the top-left corner */
+.sidebar {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  flex-direction: row;
+  gap: 10px;
+  z-index: 1000;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    top: 10px;
+    left: 10px;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  header {
+    margin-top: 60px; /* Add space below the icons */
+  }
+
+  .hero {
+    margin-top: 20px;
+    padding: 10px;
+  }
+
+  .hero-image {
+    width: 120px;
+    height: 120px;
+    margin-top: 10px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .get-in-touch {
+    padding: 1rem;
+  }
+
+  .get-in-touch input, .get-in-touch textarea {
+    font-size: 0.8rem;
+  }
+
+  .get-in-touch button {
+    font-size: 0.8rem;
+  }
+}
